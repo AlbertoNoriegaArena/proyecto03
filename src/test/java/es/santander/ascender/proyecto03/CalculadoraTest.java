@@ -1,6 +1,8 @@
 package es.santander.ascender.proyecto03;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import org.junit.jupiter.api.Test;
 
 public class CalculadoraTest {
@@ -40,5 +42,21 @@ public class CalculadoraTest {
         double resultado = calculadora.dividir(10, 5);
 
         assertEquals(2, resultado, "10 / 5 debería ser 2");
+    }
+
+    @Test
+    public void testDivisionPorCero() {
+
+        Calculadora calculadora = new Calculadora();
+
+        try{
+
+            double resultado = calculadora.dividir(10, 0);
+
+            fail("Debería haber lanzado un error de división por 0");
+        } catch (Exception e){
+
+            System.out.println(e);
+            }
     }
 }
