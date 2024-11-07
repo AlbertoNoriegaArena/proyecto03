@@ -1,5 +1,6 @@
 package es.santander.ascender.proyecto03;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -59,4 +60,49 @@ public class CalculadoraTest {
             System.out.println(e);
             }
     }
+
+    @Test
+    public void testGenerarTablaDeMultiplicar(){
+
+        Calculadora calculadora= new Calculadora();
+
+        calculadora.generarTablaDeMultiplicar(7);
+
+    }
+
+    @Test
+    public void testGenerarTablaDeMultiplicarWhile(){
+
+        Calculadora calculadora= new Calculadora();
+
+        calculadora.calcularTablaDeMultiplicarWhile(7);
+
+    }
+
+    @Test
+    public void testGenerarTablaDeMultiplicarDoWhile(){
+
+        Calculadora calculadora= new Calculadora();
+
+        calculadora.calcularTablaDeMultiplicarDoWhile(7);
+
+    }
+
+     @Test
+    public void testCalcularTablaDeMultiplicar() {
+                
+        Calculadora calculadora= new Calculadora();
+        
+        // Probar con el número 5
+        int numero = 5;
+        int[] valores = calculadora.calcularTablaDeMultiplicar(numero);
+                
+        // Esperamos que la tabla de multiplicar del 5 sea:
+        int[] resultadoEsperado = new int[]{0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50};
+        
+        assertArrayEquals(resultadoEsperado, valores, "La tabla de multiplicar del 5 no es correcta.");
+        
+
+    }
+
 }
